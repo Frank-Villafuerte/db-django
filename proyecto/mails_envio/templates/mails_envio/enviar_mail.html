@@ -5,7 +5,13 @@
         <title>Enviar e-mail</title>
     </head>
     <body>
-        <h1>e-mail enviado</h1>
+        <h1>Enviar e-mail</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form }}
+            <button type="submit">Enviar correo</button>
+        </form>
+        <p>Este correo se enviará a fvillafuerte@unsa.edu.pe</p>
         
     </body>
 </html>
