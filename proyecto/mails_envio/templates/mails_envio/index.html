@@ -2,10 +2,14 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Enviar e-mail</title>
+        <title>Aplicaciones</title>
     </head>
     <body>
-        <h1>e-mail enviado</h1>
+        <h1>Aplicaciones</h1>
+        <ul>
+            <li><a class="btn" href="{% url 'enviar_mail' %}">Enviar email</a></li>
+            <li><a class="btn" href="{% url 'pdf' %}">Mostrar pdf</a></li>
+        </ul>
         
     </body>
 </html>
