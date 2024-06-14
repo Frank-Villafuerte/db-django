@@ -1,15 +1,22 @@
+
+{% load static %}
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" type="text/css" href="{% static 'estilos/index.css' %}">
         <meta charset="UTF-8">
         <title>Aplicaciones</title>
     </head>
     <body>
-        <h1>Aplicaciones</h1>
-        <ul>
-            <li><a class="btn" href="{% url 'enviar_mail' %}">Enviar email</a></li>
-            <li><a class="btn" href="{% url 'pdf' %}">Mostrar pdf</a></li>
-        </ul>
+        <div class="formulario-contenedor">
+
+        
+            <h1>Aplicaciones</h1>
+            <ul>
+                <li><a class="btn" href="{% url 'enviar_mail' %}">Enviar email</a></li>
+                <li><a class="btn" href="{% url 'pdf' %}">Mostrar pdf</a></li>
+            </ul>
+        </div>  
         
     </body>
 </html>

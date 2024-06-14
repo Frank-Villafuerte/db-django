@@ -1,17 +1,22 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="{% static 'estilos/index.css' %}">
         <title>Enviar e-mail</title>
     </head>
     <body>
-        <h1>Enviar e-mail</h1>
-        <form method="post">
-            {% csrf_token %}
-            {{ form }}
-            <button type="submit">Enviar correo</button>
-        </form>
-        <p>Este correo se enviará a fvillafuerte@unsa.edu.pe</p>
-        
+        <div class="formulario-contenedor">
+            <h1>Enviar e-mail</h1>
+            <form method="post">
+                {% csrf_token %}
+                {{ form }}
+                <button type="submit">Enviar correo</button>
+            </form>
+            <p>Este correo se enviará a fvillafuerte@unsa.edu.pe</p>
+            
+        </div>
+       
     </body>
 </html>
