@@ -2,10 +2,11 @@ import datetime
 from django.shortcuts import render
 from django.core.mail import send_mail
 from .forms import EmailForm
+from .forms import InvoiceForm
 
 from django.http import Http404
-
 from . import renderers
+
 def index(request):
     return render(request, 'mails_envio/index.html')
 
@@ -36,11 +37,22 @@ def email(request):
         form = EmailForm()
     return render(request, 'mails_envio/enviar_mail.html', {'form': form})
 
-def pdf_view(request, *args, **kwargs):
+'''def pdf_view(request, *args, **kwargs):
     data = {
         'date': datetime.date.today(), 
         'amount': 39.99,
         'customer_name': 'Cooper Mann',
         'invoice_number': 1233434,
     }
-    return renderers.render_to_pdf('mails_envio/invoice.html', data)
+    return renderers.render_to_pdf('mails_envio/invoice.html', data)'''
+
+def pdf_view(request):
+    if request.method == 'POST':
+        form = InvoiceForm(request.POST)
+        if form.is_valid():
+            data = form.cleaned_data
+            data['date'] = datetime.date.today()
+            return renderers.render_to_pdf('mails_envio/invoice.html', data)
+    else:
+        form = InvoiceForm()
+    return render(request, 'mails_envio/form_invoice.html', {'form': form})
